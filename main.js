@@ -2,8 +2,8 @@ let form = document.querySelector("form");
 let output = document.querySelector(".output");
 let clearBTN = document.querySelector(".clear");
 
-// قراءة البيانات الموجودة من localStorage
-let dataArray = JSON.parse(localStorage.getItem("daArray")) || []; // إذا لم تكن موجودة، استخدم مصفوفة فارغة
+
+let dataArray = JSON.parse(localStorage.getItem("daArray")) || []; 
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ form.addEventListener("submit", (e) => {
     
     selectedOptions = selectedOptions || "No options selected";
 
-    // إنشاء كائن جديد للبيانات
+   
     let data = {
         userName: nameInput,
         Password: PasswordInput,
@@ -36,14 +36,22 @@ form.addEventListener("submit", (e) => {
         Options: selectedOptions
     };
     
-    // إضافة البيانات الجديدة إلى المصفوفة
+    
     dataArray.push(data);
-    output.innerHTML += `<p>${JSON.stringify(data)}</p>`;
-    // تخزين المصفوفة المحدثة في localStorage
+    output.innerHTML += `
+    <p>Name: ${data.userName}</p>
+    <p>Password: ${data.Password}</p>
+    <p>Date of Birth: ${data.Date}</p>
+    <p>Gender: ${data.Gender}</p>
+    <p>Phone: ${data.Phone}</p>
+    <p>Meal: ${data.Meal}</p>
+    <p>Options: ${data.Options}</p>
+    `;
+    
     localStorage.setItem("daArray", JSON.stringify(dataArray));
 });
 
-// زر مسح البيانات
+
 clearBTN.addEventListener("click", () => {
     localStorage.clear();
     location.reload();
