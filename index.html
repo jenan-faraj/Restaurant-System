@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-logo">
+          <img src="images/image-removebg-preview (6).png" alt="logo"/>
+        </div>
+        <ul class="navbar-links">
+          <li><a class="selected" href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Projects</a></li>
+        </ul>
+  
+        <div class="list-group">
+          <label for="toggle"><i class="fa-solid fa-list"></i></label>
+          <input type="checkbox" id="toggle" />
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Projects</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="formContainer">
+      <form>
+        <div class="infor">
+          <input type="text" placeholder="Full Name" />
+          <br /><br />
+
+          <input type="password" placeholder="Password" />
+          <br /><br />
+
+          <input type="date" placeholder="Date of Birth" />
+          <br /><br />
+          <input type="text" placeholder="Gender" />
+          <br /><br />
+          <input type="number" placeholder="Phone number" />
+          <br /><br />
+        </div>
+        <div class="orderType">
+          <h3>Select your order</h3>
+          <label for="shawerma">shawerma</label>
+          <input id="shawerma" name="meal" type="radio" value="Shawerma" />
+          <br /><br />
+
+          <label for="zinger">zinger</label>
+          <input id="zinger" name="meal" type="radio" value="Zinger" />
+          <br /><br />
+
+          <label for="borger">borger</label>
+          <input id="borger" name="meal" type="radio" value="Borger" />
+          <br /><br />
+        </div>
+        <div class="orderOption">
+          <h3>Select the meal type</h3>
+          <label for="Sandwich">Sandwich</label>
+          <input id="Sandwich" type="checkbox" value="Sandwich" />
+          <br /><br />
+
+          <label for="Combo">Combo</label>
+          <input id="Combo" type="checkbox" value="Combo" />
+          <br /><br />
+        </div>
+        <button>Click</button>
+      </form>
+
+      <p class="output"></p>
+      <p class="localStorage"></p>
+      <button class="clear">Clear</button>
+    </div>
+
+    <Footer>
+      <div class="footer-container">
+      <div class="socialMedia-container">
+        <a target="_blank" href="https://github.com/jenan-faraj"><i class="fa-brands fa-github"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/jenan-faraj-87a163340/"><i class="fa-brands fa-linkedin"></i></a>
+        <a target="_blank" href="https://wa.me/0781803035"><i class="fa-brands fa-square-whatsapp"></i></a>
+      </div>
+    </div>
+    <p>©.2024.All Rights Reserved</p>
+    </Footer>
+    <script src="main.js"></script>
+  </body>
+</html>
