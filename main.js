@@ -80,10 +80,6 @@ form.addEventListener("submit", (e) => {
   let GenderInput = document.querySelector('[placeholder="Gender"]').value;
   let PhoneInput = document.querySelector('[placeholder="Phone number"]').value;
 
-//   let shawerma = document.querySelector('[id="shawerma"]:checked')?.value || "";
-//   let zinger = document.querySelector('[id="zinger"]:checked')?.value || "";
-//   let borger = document.querySelector('[id="borger"]:checked')?.value || "";
-
   let orderType = "";
   document.querySelectorAll('input[type="radio"]:checked').forEach((e) => {
     orderType += e.value + " ";
