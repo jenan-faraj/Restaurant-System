@@ -112,7 +112,6 @@ form.addEventListener("submit", (e) => {
   );
 
   
-  // التحقق من صحة المدخلات
   if (!/^[^\s]+$/.test(nameInput)) {
     alert("Username must not contain spaces.");
     return;
@@ -138,7 +137,6 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  // تحقق مما إذا كان المستخدم موجودًا بالفعل
   const existingUser = dataArray.find(customer => customer.nameInput === nameInput);
   
   if (existingUser) {
