@@ -7,6 +7,7 @@ let dataArray = JSON.parse(localStorage.getItem("dataArray")) || [];
 function CustomerInf(
   userImg,
   nameInput,
+  emailInput,
   PasswordInput,
   DateInput,
   GenderInput,
@@ -16,6 +17,7 @@ function CustomerInf(
 ) {
   this.userImg = userImg;
   this.nameInput = nameInput;
+  this.emailInput = emailInput;
   this.PasswordInput = PasswordInput;
   this.DateInput = DateInput;
   this.GenderInput = GenderInput;
@@ -36,6 +38,9 @@ function rander() {
 
     let nameInput = document.createElement("p");
     nameInput.textContent = `Name: ${customer.nameInput}`;
+
+    let emailInput = document.createElement("p");
+    emailInput.textContent = `Email: ${customer.emailInput}`;
 
     let PasswordInput = document.createElement("p");
     PasswordInput.textContent = `Password: ${"*".repeat(
@@ -60,6 +65,7 @@ function rander() {
 
     card.appendChild(userImg);
     card.appendChild(nameInput);
+    card.appendChild(emailInput);
     card.appendChild(PasswordInput);
     card.appendChild(DateInput);
     card.appendChild(GenderInput);
@@ -75,6 +81,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   let nameInput = document.querySelector('[placeholder="Full Name"]').value;
+  let emailInput = document.querySelector('[placeholder="Email"]').value;
   let PasswordInput = document.querySelector('[placeholder="Password"]').value;
   let DateInput = document.querySelector('[placeholder="Date of Birth"]').value;
   let GenderInput = document.querySelector('[placeholder="Gender"]').value;
@@ -95,6 +102,7 @@ form.addEventListener("submit", (e) => {
   const newCustomer = new CustomerInf(
     imgURL,
     nameInput,
+    emailInput,
     PasswordInput,
     DateInput,
     GenderInput,
@@ -102,6 +110,41 @@ form.addEventListener("submit", (e) => {
     orderType,
     selectedOptions
   );
+
+  
+  // التحقق من صحة المدخلات
+  if (!/^[^\s]+$/.test(nameInput)) {
+    alert("Username must not contain spaces.");
+    return;
+  }
+
+  if (PasswordInput.length < 8 || !/\d/.test(PasswordInput) || !/[A-Z]/.test(PasswordInput) || !/[!@#$%^&*]/.test(PasswordInput)) {
+    alert("Password must be at least 8 characters long and include at least one number, one uppercase letter, and one special character.");
+    return;
+  }
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(DateInput)) {
+    alert("Birthday must be in the format YYYY-MM-DD.");
+    return;
+  }
+
+  if (!/^07\d{8}$/.test(PhoneInput)) {
+    alert("Phone number must be 10 digits and start with '07'.");
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  // تحقق مما إذا كان المستخدم موجودًا بالفعل
+  const existingUser = dataArray.find(customer => customer.nameInput === nameInput);
+  
+  if (existingUser) {
+    alert("User already exists.");
+    return;
+  }
 
   dataArray.push(newCustomer);
 
